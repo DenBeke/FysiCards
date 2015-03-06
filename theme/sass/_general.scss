@@ -1,0 +1,23 @@
+/**
+ * General style rules
+ *
+ * Author: Mathias Beke
+ * Date:	   January 2015
+ *
+ */
+
+
+$max-content-width: 800px; // for admin
+
+$max-width: 1200px;
+
+// Colors
+$color-red: #b71c1c;
+$color-font: #444;
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	color: $color-font;
+}
