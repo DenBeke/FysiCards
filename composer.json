@@ -1,0 +1,29 @@
+{
+    "name": "denbeke/fysicards",
+    "description": "Multiple choice (cards) webapp for Physics course",
+    "homepage": "https://github.com/DenBeke/FysiCards",
+    "license": "proprietary",
+
+    "authors": [
+        {
+            "name": "Mathias Beke",
+            "homepage": "http://denbeke.be/"
+        }
+    ],
+
+    "config" : {
+        "vendor-dir" : "core/lib"
+    },
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/DenBeke/ORM.git"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.4.0",
+        "denbeke/orm": "dev-master"
+    }
+}
