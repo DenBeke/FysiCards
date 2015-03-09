@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "985ae1b5b7920a3abf00bfab6b13e9c6",
+    "hash": "a2bfcb770698dca17bb087b829f28201",
     "packages": [
         {
             "name": "denbeke/orm",
@@ -139,6 +139,7 @@
         "denbeke/orm": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.4.0"
     },

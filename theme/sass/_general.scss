@@ -12,7 +12,9 @@ $max-content-width: 800px; // for admin
 $max-width: 1200px;
 
 // Colors
+$color-body-bg: #fcfcfc;
 $color-red: #b71c1c;
+$color-blue: #2196f3;
 $color-font: #444;
 
 html,
@@ -20,4 +22,19 @@ body {
 	margin: 0;
 	padding: 0;
 	color: $color-font;
+	background-color: $color-body-bg;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	color: $color-blue;
+	text-align: center;
+}
+
+.card-panel {
+	display: inline-block;
+	background-color: $color-blue !important;
 }

@@ -1,0 +1,56 @@
+/**
+ * Styling for admin
+ */
+
+#admin {
+	
+	max-width: $max-content-width;
+	margin: auto;
+	padding: 2.5% 5%;
+	
+	
+	.possible-answers {
+		
+		$size: 64px;
+		text-align: center;
+		clear: both;
+		font-size: 0em;
+		
+		.answer {
+			
+			display: inline-block;
+			margin: 0 1rem;
+			border-radius: 50%;
+			width: $size;
+			height: $size;
+			box-shadow: rgba(0, 0, 0, 0.25) 0 2px 3px;
+			vertical-align: top;
+			line-height: $size;
+			text-align: center;
+			color: #fff;
+			font-size: 1rem;
+			position: relative;
+			
+			&.red {
+				background-color: red;
+			}
+			
+			&.blue {
+				background-color: blue;
+			}
+			
+			&.yellow {
+				background-color: yellow;
+			}
+			
+			&.white {
+				background-color: #fff;
+			}
+			
+			
+		}
+		
+		
+	}
+	
+}
