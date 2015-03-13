@@ -42,20 +42,31 @@
 
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">FysiCards</a>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html"><i class="mdi-communication-textsms left"></i>Question</a></li>
-                    <li><a href="sass.html"><i class="mdi-action-question-answer left"></i>Archive</a></li>
-                    <li><a href="components.html"><i class="mdi-social-group left"></i>Users</a></li>
-                </ul>
+                
+                <div class="nav-container">
+                
+                    <a href="<?php echo SITE_URL ?>" class="brand-logo">FysiCards</a>
+                    <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="<?php echo SITE_URL ?>"><i class="mdi-communication-textsms left"></i>Question</a></li>
+                        <li><a href="<?php echo SITE_URL . '/archive' ?>"><i class="mdi-action-question-answer left"></i>Archive</a></li>
+                        <?php if(!\Auth\Auth::check()): ?>
+                            <li><a href="<?php echo SITE_URL . '/register' ?>"><i class="mdi-social-person-add left"></i>Register</a></li>
+                        <?php endif; ?>
+                    </ul>
+    
+                    <ul id="mobile-nav" class="side-nav">
+                        <li><a href="<?php echo SITE_URL ?>"><i class="mdi-communication-textsms left"></i>Question</a></li>
+                        <li><a href="<?php echo SITE_URL . '/archive' ?>"><i class="mdi-action-question-answer left"></i>Archive</a></li>
+                        <?php if(!\Auth\Auth::check()): ?>
+                            <li><a href="<?php echo SITE_URL . '/register' ?>"><i class="mdi-social-person-add left"></i>Register</a></li>
+                        <?php endif; ?>
+                    </ul>
+                
+                </div><!-- .nav-container -->
 
-                <ul id="mobile-nav" class="side-nav">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="components.html">Components</a></li>
-                </ul>
-
-            </div>
+            </div><!-- .nav-wrapper -->
+        
         </nav>
 
     </header>

@@ -9,6 +9,11 @@
 .nav-wrapper {
     background-color: $color-blue;
     
+    .nav-container {
+        max-width: $max-content-width;
+        margin: 0 auto;
+    }
+    
     ul {
         
         li {
