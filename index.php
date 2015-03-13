@@ -24,17 +24,23 @@ $urls = array(
     INSTALL_DIR . '/api/([^/]+)(/[^/])*'        => 'Controller\Api',
     INSTALL_DIR . '/admin'                      => 'Controller\Admin',
     INSTALL_DIR . '/register'                   => 'Controller\Register',
+    INSTALL_DIR . '/login'                      => 'Controller\Login',
 );
 
 try {
 
     \DenBeke\ORM\ORM::init($db_config);
-    //\Auth\Auth::init('\Model\User::getByName');
+    \Auth\Auth::init('\Model\User::getByName');
 
     $controller = glue::stick($urls);
 
     if(get_class($controller) == 'Controller\Error') {
         throw new exception("404 Page not found");
+    }
+    
+    if(!\Auth\Auth::check()) {
+        // nope, not logged in...
+        $controller = new Controller\Login;
     }
 
 
