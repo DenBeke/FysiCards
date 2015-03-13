@@ -41,7 +41,12 @@ try {
     
     if(!\Auth\Auth::check()) {
         // nope, not logged in...
-        $controller = new Controller\Login;
+        if(get_class($controller) == 'Controller\Register') {
+            
+        }
+        else {
+            $controller = new Controller\Login;
+        }
     }
 
 
