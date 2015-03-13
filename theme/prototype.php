@@ -38,6 +38,7 @@
                             //console.log('New question!');
                             old_data = data;
                             $('.items').hide().empty().append(data).delay(400).fadeIn();
+                            toast('New question!', 4000)
                         }
                         
                     });

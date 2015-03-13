@@ -23,6 +23,7 @@ $urls = array(
     INSTALL_DIR                                 => 'Controller\Home',
     INSTALL_DIR . '/api/([^/]+)(/[^/])*'        => 'Controller\Api',
     INSTALL_DIR . '/admin'                      => 'Controller\Admin',
+    INSTALL_DIR . '/register'                   => 'Controller\Register',
 );
 
 try {

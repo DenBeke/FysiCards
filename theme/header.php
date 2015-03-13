@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title><?php echo $controller->title; ?></title>
 
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="<?php echo SITE_URL . '/theme/materialize/css/materialize.min.css' ?>"  media="screen,projection"/>

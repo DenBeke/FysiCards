@@ -38,3 +38,9 @@ h5 {
 	display: inline-block;
 	background-color: $color-blue !important;
 }
+
+.wrap {
+	max-width: $max-content-width;
+	margin: auto;
+	padding: 2.5% 5%;
+}
