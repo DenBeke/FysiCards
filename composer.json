@@ -17,9 +17,9 @@
     
     "autoload": {
         "psr-4": {
-            "Controller\\": "core/Controller",
-            "Model\\": "core/Model",
-            "Auth\\": "core/Auth"
+            "Controller\\": "core/Controller/",
+            "Model\\": "core/Model/",
+            "Auth\\": "core/Auth/"
         }
     },
 

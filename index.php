@@ -21,11 +21,11 @@ require BASE_DIR . '/core/lib/gluephp/glue.php';
 $urls = array(
     'ERROR'                                     => 'Controller\Error',
     INSTALL_DIR                                 => 'Controller\Home',
-    INSTALL_DIR . '/api/([^/]+)/?([^/]*)'        => 'Controller\Api',
+    INSTALL_DIR . '/api/([^/]+)/?([^/]*)'       => 'Controller\Api',
     INSTALL_DIR . '/admin'                      => 'Controller\Admin',
     INSTALL_DIR . '/register'                   => 'Controller\Register',
     INSTALL_DIR . '/login'                      => 'Controller\Login',
-    INSTALL_DIR . '/archive'                      => 'Controller\Archive',
+    INSTALL_DIR . '/archive'                    => 'Controller\Archive',
 );
 
 try {
