@@ -48,6 +48,12 @@ class Api {
             
             $user = \Auth\Auth::user();
             
+            
+            foreach ($user->getAnswerAll($question) as $a) {
+                $a = new \Model\Answer($a);
+                $a->remove();
+            }
+            
             $user->setAnswer($question, $answer);
             
             echo 'ok';

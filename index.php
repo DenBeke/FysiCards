@@ -25,6 +25,7 @@ $urls = array(
     INSTALL_DIR . '/admin'                      => 'Controller\Admin',
     INSTALL_DIR . '/register'                   => 'Controller\Register',
     INSTALL_DIR . '/login'                      => 'Controller\Login',
+    INSTALL_DIR . '/archive'                      => 'Controller\Archive',
 );
 
 try {

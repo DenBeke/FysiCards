@@ -20,6 +20,17 @@ namespace Model {
         
         
         
+        public function getAllAnswers() {
+            $query = \DenBeke\ORM\DB::table(Answer::getTable())->join(Question::getTable(), Answer::getTable() . '.question', '=', Question::getTable() . '.id')
+                ->where('user', '=', $this->id);
+                
+            $result = $query->get();
+            
+            return $result;
+
+        }
+        
+        
         public function getAnswer($question) {
             
             $query = \DenBeke\ORM\DB::table(\Model\Answer::getTable())
@@ -37,6 +48,20 @@ namespace Model {
             }
             
         }
+        
+        public function getAnswerAll($question) {
+            
+            $query = \DenBeke\ORM\DB::table(\Model\Answer::getTable())
+                ->select('*')
+                ->where('user', '=', $this->id)
+                ->where('question', '=', $question )
+                ->orderBy('id', 'DESC');
+            $result = $query->get();
+            
+            return $result;
+            
+        }
+        
         
         public function setAnswer($question, $answer) {
             
