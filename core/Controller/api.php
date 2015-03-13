@@ -10,7 +10,7 @@ class Api {
     }
     
     public function GET($args) {
-        
+
         $this->{$args[1]}($args);
         
         die;
@@ -23,7 +23,7 @@ class Api {
     }
     
     
-    public function question() {
+    public function question($args) {
         
         $options = [
             'limit' => 1,
@@ -36,6 +36,28 @@ class Api {
         }
         
         include THEME_DIR . '/question.php';
+        
+    }
+    
+    public function save_answer($args) {
+        
+        try {
+            $args     = explode(',', $args[2]);
+            $question = $args[0];
+            $answer   = $args[1];
+            
+            $user = \Auth\Auth::user();
+            
+            $user->setAnswer($question, $answer);
+            
+            echo 'ok';
+        }
+        
+        catch(\exception $e) {
+            echo 'error';
+            return;
+        }
+        
         
     }
     

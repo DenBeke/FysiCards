@@ -13,16 +13,27 @@
         
         <script>
             
-            var old_data = '';
+            var old_id = '';
             
             $(document).ready(function() {
+                
+                
+                $('main').on('click', '.possible-answers .answer', function() {
+                    var answer = $(this).data('answer');
+                    var question = $(this).data('question');
+                    
+                    $.get('<?php echo SITE_URL . '/api/save_answer/'; ?>' + question + ',' + answer, function(data) {
+                        //console.log('Got question!');
+                        console.log('<?php echo SITE_URL . '/api/save_answer/'; ?>' + question + ',' + answer);
+                    });
+                });
                 
                 // inital load
                 setTimeout(function() {
                     $.get('<?php echo SITE_URL . '/api/question'; ?>', function(data) {
                         //console.log('Got question!');
                         $('.items').hide().empty().append(data).fadeIn();
-                        old_data = data;
+                        old_id = $(data).filter('.item').data('question');
                     });
                 }, 500);
                 
@@ -31,12 +42,18 @@
                     $.get('<?php echo SITE_URL . '/api/question'; ?>', function(data) {
                         //console.log('Got question!');
                         
-                        if(data == old_data) {
+                        var id = $(data).filter('.item').data('question');
+                        
+                        if(old_id == id) {
                             //console.log('No new question');
+                            //old_id = $(data).filter('.item').data('question');
+                            //console.log(old_id);
+                            $('.items').empty().append(data);
                         }
                         else {
                             //console.log('New question!');
-                            old_data = data;
+                            old_id = id;
+                            //alert(old_id);
                             $('.items').hide().empty().append(data).delay(400).fadeIn();
                             toast('New question!', 4000)
                         }

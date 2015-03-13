@@ -19,6 +19,36 @@ namespace Model {
         public $password;
         
         
+        
+        public function getAnswer($question) {
+            
+            $query = \DenBeke\ORM\DB::table(\Model\Answer::getTable())
+                ->select('*')
+                ->where('user', '=', $this->id)
+                ->where('question', '=', $question )
+                ->orderBy('id', 'DESC');
+            $result = $query->get();
+            
+            if(sizeof($result) >= 1) {
+                return $result[0]->answer;
+            }
+            else {
+                return 'none';
+            }
+            
+        }
+        
+        public function setAnswer($question, $answer) {
+            
+            $a = new \Model\Answer;
+            $a->user = $this->id;
+            $a->question = $question;
+            $a->answer = $answer;
+            $a->add();
+            
+        }
+        
+        
         /**
          * Get the id of the AuthUser
          *
