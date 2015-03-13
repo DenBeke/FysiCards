@@ -16,6 +16,9 @@ class Admin extends Page {
         $this->title = 'Admin — ' . SITE_TITLE;
         $this->name = 'admin';
         $this->theme = 'admin.php';
+        $this->latest_questions = [];
+        
+        $this->refresh();
     }
     
     
@@ -32,6 +35,7 @@ class Admin extends Page {
                 $q = new \Model\Question;
                 $q->question = $_POST['question'];
                 $q->date = time();
+                $q->answer = 'none';
                 $q->colors = '';
                 
                 foreach (\Model\Question::getColors() as $name => $class) {
@@ -50,6 +54,37 @@ class Admin extends Page {
             }
             
         }
+        
+        
+        if(isset($_POST['set-answer-id'])) {
+            
+            $id = intval($_POST['set-answer-id']);
+            $question = \Model\Question::getById($id);
+            
+            if(sizeof($question) != 1) {
+                $this->notify = "Couldn't find question";
+            }
+            $question = $question[0];
+            
+            $question->answer = $_POST['answer'];
+            $question->update();
+            
+            $this->notify = 'Answer set to: ' . $_POST['answer'];
+        }
+        
+        
+        $this->refresh();
+    }
+    
+    
+    private function refresh() {
+        
+        $options = [
+            'limit' => 5,
+            'orderBy' => ['date', 'DESC'],
+        ];
+        
+        $this->latest_questions = \Model\Question::get($options);
         
     }
     

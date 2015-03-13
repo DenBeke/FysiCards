@@ -9,6 +9,17 @@
 	padding: 2.5% 5%;
 	
 	
+	.edit-question {
+		
+		text-align: center;
+		margin-bottom: 80px;
+		
+		p,
+		.input-field {
+			display: inline-block;
+		}
+	}
+	
 	.possible-answers {
 		
 		$size: 64px;

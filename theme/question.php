@@ -1,6 +1,11 @@
 <div class="item">
-    <div class="real-answer blue">
-        <i class="mdi-navigation-check"></i>
+    <div class="real-answer <?php echo $question->answer; ?>">
+        <?php if($question->answer == 'none'): ?>
+            <span class="">?</span>
+        <?php else: ?>
+            <i class="mdi-navigation-check"></i>
+        <?php endif; ?>
+        
     </div>
     
     <div class="info">

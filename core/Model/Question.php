@@ -13,6 +13,7 @@ class Question extends \DenBeke\ORM\ORM {
     
     public $id;
     public $question;
+    public $answer;
     public $date;
     public $colors;
     
