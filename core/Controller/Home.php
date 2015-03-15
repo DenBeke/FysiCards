@@ -15,7 +15,7 @@ class Home extends Page {
     public function __construct() {
         $this->title = SITE_TITLE;
         $this->name = 'home';
-        $this->theme = 'prototype.php';
+        $this->theme = 'home.php';
     }
 
 

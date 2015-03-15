@@ -24,7 +24,14 @@
                     
                     $.get('<?php echo SITE_URL . '/api/save_answer/'; ?>' + question + ',' + answer, function(data) {
                         //console.log('Got question!');
-                        console.log('<?php echo SITE_URL . '/api/save_answer/'; ?>' + question + ',' + answer);
+                        //console.log('<?php echo SITE_URL . '/api/save_answer/'; ?>' + question + ',' + answer);
+                        toast(data, 4000);
+                        
+                        $.get('<?php echo SITE_URL . '/api/question'; ?>', function(data) {
+                            //console.log('Got question!');
+                            $('.items').empty().append(data);
+                            old_id = $(data).filter('.item').data('question');
+                        });
                     });
                 });
                 

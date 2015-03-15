@@ -47,20 +47,32 @@ class Api {
             $answer   = $args[1];
             
             $user = \Auth\Auth::user();
+            $question = \Model\Question::getById($question);
+            if(sizeof($question) != 1) {
+                echo 'Invalid question';
+                return;
+            }
+            else {
+                $question = $question[0];
+            }
             
+            if($question->answer != 'none') {
+                echo 'Too late!';
+                return;
+            }
             
-            foreach ($user->getAnswerAll($question) as $a) {
+            foreach ($user->getAnswerAll($question->id) as $a) {
                 $a = new \Model\Answer($a);
                 $a->remove();
             }
             
-            $user->setAnswer($question, $answer);
+            $user->setAnswer($question->id, $answer);
             
-            echo 'ok';
+            echo 'Answer received!';
         }
         
         catch(\exception $e) {
-            echo 'error';
+            echo 'Error: ' . $e->getMessage();
             return;
         }
         
