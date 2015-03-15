@@ -11,7 +11,13 @@ class Api {
     
     public function GET($args) {
 
-        $this->{$args[1]}($args);
+        try {
+            $this->{$args[1]}($args);
+        }
+        catch (\exception $e) {
+            echo $e->getMessage();
+        }
+        
         
         die;
         
