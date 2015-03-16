@@ -24,6 +24,11 @@
             <input name="password" id="password" type="password">
             <label for="password">Password</label>
         </div>
+        
+        <p>
+            <input type="checkbox" id="remember" name="remember" value="true" />
+            <label for="remember">Remember me</label>
+          </p>
     
         <p>
             <a class="waves-effect waves-light btn" onclick='document.forms["add-question"].submit(); return false;'><i class="mdi-action-exit-to-app"></i> Login</a>
