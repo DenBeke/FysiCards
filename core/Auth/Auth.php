@@ -46,7 +46,7 @@ namespace Auth {
                 session_start();
             }
             
-            if(isset($_SESSION['login']) and $_SESSION['user-name']) {
+            if(isset($_SESSION['login']) and $_SESSION['user-name'] and false) {
                 if($_SESSION['login']) {
                     $user = call_user_func(self::$callback, $_SESSION['user-name']);
                     if(sizeof($user) == 1) {
@@ -123,7 +123,7 @@ namespace Auth {
          * @post logged-in set
          */
         public static function checkCookie() {
-            if(!empty($_COOKIE['LOGIN'])) {
+            if(empty($_COOKIE['LOGIN'])) {
                 return false;
             }
             else {
