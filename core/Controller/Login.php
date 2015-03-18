@@ -21,7 +21,15 @@ namespace Controller {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if(!empty($_POST['name']) and !empty($_POST['password'])) {
-                    if(\ Auth\Auth::attempt($_POST['name'], $_POST['password']) ) {
+                    
+                    if(isset($_POST['remember']) and $_POST['remember'] == 'true') {
+                        $remember = true;
+                    }
+                    else {
+                        $remember = false;
+                    }
+                    
+                    if(\ Auth\Auth::attempt($_POST['name'], $_POST['password'], $remember) ) {
                         header("Refresh:0");
                     }
                     else {
