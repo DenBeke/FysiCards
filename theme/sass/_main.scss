@@ -143,20 +143,34 @@ main {
 				box-shadow: rgba(0, 0, 0, 0.25) 0 2px 3px;
 				
 				&.red {
-					background-color: red;
+					background-color: $color-red;
 				}
 				
 				&.blue {
-					background-color: blue;
+					background-color: $color-blue;
 				}
 				
 				&.yellow {
-					background-color: yellow;
+					background-color: $color-yellow;
 				}
 				
 				&.white {
 					background-color: #fff;
+					color: $color-blue;
 				}
+				
+				&.red-and-blue {
+					background: -webkit-linear-gradient(left, $color-red, $color-red 50%, $color-blue 50%, $color-blue);
+				}
+				
+				&.red-and-yellow {
+					background: -webkit-linear-gradient(left, $color-red, $color-red 50%, $color-yellow 50%, $color-yellow);
+				}
+				
+				&.blue-and-yellow {
+					background: -webkit-linear-gradient(left, $color-blue, $color-blue 50%, $color-yellow 50%, $color-yellow);
+				}
+
 			}
 			
 			.possible-answers {
@@ -181,19 +195,32 @@ main {
 					font-size: 2.6rem;
 					
 					&.red {
-						background-color: red;
+						background-color: $color-red;
 					}
 					
 					&.blue {
-						background-color: blue;
+						background-color: $color-blue;
 					}
 					
 					&.yellow {
-						background-color: yellow;
+						background-color: $color-yellow;
 					}
 					
 					&.white {
 						background-color: #fff;
+						color: $color-blue;
+					}
+					
+					&.red-and-blue {
+						background: -webkit-linear-gradient(left, $color-red, $color-red 50%, $color-blue 50%, $color-blue);
+					}
+					
+					&.red-and-yellow {
+						background: -webkit-linear-gradient(left, $color-red, $color-red 50%, $color-yellow 50%, $color-yellow);
+					}
+					
+					&.blue-and-yellow {
+						background: -webkit-linear-gradient(left, $color-blue, $color-blue 50%, $color-yellow 50%, $color-yellow);
 					}
 					
 					
