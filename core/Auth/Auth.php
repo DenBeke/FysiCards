@@ -173,7 +173,7 @@ namespace Auth {
         public static function login($user) {
             static::requireInitialized();
             static::$login = true;
-            static::$user = $user->getName();
+            static::$user = $user;
             $_SESSION['login'] = true;
             $_SESSION['user-name'] = $user->getName();
             
