@@ -46,14 +46,18 @@ namespace Auth {
                 session_start();
             }
             
-            if(isset($_SESSION['login']) and $_SESSION['user-name']) {
+            if(isset($_SESSION['login']) and $_SESSION['user-name'] and false) {
                 if($_SESSION['login']) {
                     $user = call_user_func(self::$callback, $_SESSION['user-name']);
                     if(sizeof($user) == 1) {
                         static::$user = $user[0];
                         static::$login = true;
+                        return;
                     }
                 }
+            }
+            else if(static::checkCookie()) {
+                return;
             }
             
         }
@@ -73,14 +77,14 @@ namespace Auth {
         
         /**
          * Attempt login with the given username and password
-         * 
+         *
          * @param username
          * @param password
          * @return boolean (true if attempt succeeded)
-         * 
+         *
          * @post on successful login, user is saved
          */
-        public static function attempt($username, $password) {
+        public static function attempt($username, $password, $remember) {
             static::requireInitialized();
             
             $user = call_user_func(self::$callback, $username);
@@ -89,6 +93,10 @@ namespace Auth {
                 
                 if($user->checkPassword($password)) {
                     static::login($user);
+                    if($remember) {
+                        static::setCookie($user);
+                    }
+                    
                     return true;
                 }
             }
@@ -106,6 +114,53 @@ namespace Auth {
             return static::$login;
         }
         
+
+        /**
+         * Check if there is a valid cookie set (for a user)
+         *
+         * @return user cookie logged in
+         * @post user set
+         * @post logged-in set
+         */
+        public static function checkCookie() {
+            if(empty($_COOKIE['LOGIN'])) {
+                return false;
+            }
+            else {
+                try {
+                    $cookie = explode('.', $_COOKIE['LOGIN']);
+                    $user = call_user_func(self::$callback, $cookie[0]);
+                
+                    if(!sizeof($user) == 1) {
+                        return false;
+                    }
+                    
+                    $user = $user[0];
+                    
+                    if($user->password != $cookie[1]) {
+                        return false;
+                    }
+                    else {
+                        static::login($user);
+                        return true;
+                    }
+                    
+                
+                }
+                catch (\exception $e) {
+                    return false;
+                }
+                
+            }
+        }
+        
+        /**
+         * Set cookie
+         */
+        public static function setCookie($user) {
+            setcookie('LOGIN', $user->name . '.' . $user->password, strtotime('+10 days'));
+        }
+        
         
         /**
          * Login the given AuthUser to the application
@@ -118,7 +173,7 @@ namespace Auth {
         public static function login($user) {
             static::requireInitialized();
             static::$login = true;
-            static::$user = $user->getName();
+            static::$user = $user;
             $_SESSION['login'] = true;
             $_SESSION['user-name'] = $user->getName();
             

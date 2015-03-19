@@ -4,8 +4,8 @@ FysiCards
 Multiple choice (cards) webapp for Physics course
 
 
-![FysiCards screenshot](/fysicards1.png?raw=true)
-![FysiCards screenshot](/fysicards2.png?raw=true)
+![FysiCards screenshot](screenshots/fysicards1.png?raw=true)
+![FysiCards screenshot](screenshots/fysicards2.png?raw=true)
 
 
 Install
