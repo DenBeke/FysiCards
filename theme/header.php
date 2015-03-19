@@ -49,7 +49,7 @@
                     <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="<?php echo SITE_URL ?>"><i class="mdi-communication-textsms left"></i>Question</a></li>
-                        <li><a href="<?php echo SITE_URL . '/archive' ?>"><i class="mdi-action-question-answer left"></i>Archive</a></li>
+                        <li><a href="<?php echo SITE_URL . '/archive' ?>"><i class="mdi-action-question-answer left"></i>Stats</a></li>
                         <?php if(!\Auth\Auth::check()): ?>
                             <li><a href="<?php echo SITE_URL . '/register' ?>"><i class="mdi-social-person-add left"></i>Register</a></li>
                         <?php endif; ?>
@@ -57,7 +57,7 @@
     
                     <ul id="mobile-nav" class="side-nav">
                         <li><a href="<?php echo SITE_URL ?>"><i class="mdi-communication-textsms left"></i>Question</a></li>
-                        <li><a href="<?php echo SITE_URL . '/archive' ?>"><i class="mdi-action-question-answer left"></i>Archive</a></li>
+                        <li><a href="<?php echo SITE_URL . '/archive' ?>"><i class="mdi-action-question-answer left"></i>Stats</a></li>
                         <?php if(!\Auth\Auth::check()): ?>
                             <li><a href="<?php echo SITE_URL . '/register' ?>"><i class="mdi-social-person-add left"></i>Register</a></li>
                         <?php endif; ?>
