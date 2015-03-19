@@ -66,6 +66,17 @@ Once you've installed all Sass dependencies, you can generate the stylesheet for
 
 
 
+Acknowledgements
+----------------
+
+* [Materialize](http://materializecss.com)
+* [jQuery](http://jquery.com)
+* [Pixie](https://github.com/usmanhalalit/pixie)
+* [DenBeke/ORM](https://github.com/DenBeke/ORM)
+
+Thank you Tom for inventing the beautiful *FysiCards* name!
+
+
 License
 -------
 
