@@ -34,6 +34,8 @@
         
             <p>
                 <a class="waves-effect waves-light btn" onclick='document.forms["add-question"].submit(); return false;'><i class="mdi-social-person-add"></i> Register</a>
+                
+                <input type="submit" style="visibility: hidden;">
             </p>
             
         </form>

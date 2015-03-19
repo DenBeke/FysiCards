@@ -35,6 +35,8 @@
             
             <a class="waves-effect waves-light btn" href="<?php echo SITE_URL . '/register'; ?>"><i class="mdi-social-person-add"></i> Register</a>
             
+            <input type="submit" style="visibility: hidden;">
+            
         </p>
         
     </form>
