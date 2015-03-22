@@ -16,6 +16,7 @@
 
     <link href="<?php echo SITE_URL . '/theme/style.css' ?>" rel="stylesheet" type="text/css">
     
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" href="<?php echo SITE_URL . '/apple-touch-icon.png'; ?>">
 
 </head>
