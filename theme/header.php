@@ -15,6 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
     <link href="<?php echo SITE_URL . '/theme/style.css' ?>" rel="stylesheet" type="text/css">
+    
+    <link rel="apple-touch-icon" href="<?php echo SITE_URL . '/apple-touch-icon.png'; ?>">
 
 </head>
 <body>
